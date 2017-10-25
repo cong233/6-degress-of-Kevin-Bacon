@@ -1,0 +1,35 @@
+The problem we solved:
+
+The average distance to Kevin Bacon under unweighted condition.
+
+How we solve it:
+
+We first read all the actors and their corresponding movies from the file 
+movie_casts.tsv. After we load the file to our ActorGraph, we have two 
+unordered_map to store information. One contains all the actors and the 
+other one contains all the movies. In here, we'll use the unordered_map 
+that stores all the actors, which an actor list. We use an iterator to go 
+through all the actors in the actor list. We use a for loop here. For 
+each actor nodes in the iterator, we uses BFS to find the shortest path, 
+like we do in pathfinder to find in unweighted case. We start from actor 
+BACON, KEVIN (I) and end to the actor the iterator is on so that we can 
+find the distance between BOCAN, KEVIN (I) to one specific actor. Then 
+add the distance to a variable called totalDist. After we iterate through 
+all the actors, we get the total distance of the shortest paths starting 
+from BACON, KEVIN (I) to all the other actors and then we divided the 
+total distance by size-1 to get average distance. In here, the size is 
+the size of unordered_map containing all the actors.
+
+How we test it:
+
+we make the executable extension file first and run it with the tsv file 
+movie_casts.tsv so that it can load the casts. Inside our program, we
+print out the final result, which is the average distance to BACON, KEVIN(I).
+The commands we use to test are listed below.
+
+Commands:
+
+make extension
+./extension movie_casts.tsv
+
+In genearl it takes around 50s to complete the entire search
